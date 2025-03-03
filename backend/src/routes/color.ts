@@ -22,4 +22,28 @@ router.get("/:id", (req: Request, res: Response) => {
   res.status(200).json(color);
 });
 
+// create color
+router.post("/", (req: Request, res: Response) => {
+  const { name, hex } = req.body;
+
+  if (!name || !hex) {
+    res.status(400).json({ message: "Name and hex are required" });
+    return;
+  }
+
+  const color = prisma.color.create({
+    data: {
+      name,
+      value: hex,
+    },
+  });
+
+  if (!color) {
+    res.status(500).json({ message: "Failed to create color" });
+    return;
+  }
+
+  res.status(201).json(color);
+});
+
 export default router;
