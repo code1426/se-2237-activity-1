@@ -4,6 +4,18 @@ import { prisma } from "../server";
 
 const router = Router();
 
+// get all colors
+router.get("/", (_req: Request, res: Response) => {
+  const colors = prisma.color.findMany();
+
+  if (!colors) {
+    res.status(404).json({ message: "Colors not found" });
+    return;
+  }
+
+  res.status(200).json(colors);
+});
+
 // get color by id
 router.get("/:id", (req: Request, res: Response) => {
   const id = req.params.id;
