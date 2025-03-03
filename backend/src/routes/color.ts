@@ -4,6 +4,7 @@ import { prisma } from "../server";
 
 const router = Router();
 
+// get color by id
 router.get("/:id", (req: Request, res: Response) => {
   const id = req.params.id;
 
@@ -15,6 +16,7 @@ router.get("/:id", (req: Request, res: Response) => {
 
   if (!color) {
     res.status(404).json({ message: "Color not found" });
+    return;
   }
 
   res.status(200).json(color);
