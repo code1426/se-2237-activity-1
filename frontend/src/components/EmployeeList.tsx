@@ -1,7 +1,6 @@
 
 import { Employee } from '../lib/types'
 import EmployeeItem from './EmployeeItem'
-import TableHeader from './TableHeader'
 
 interface EmployeeListProps {
   employees: Employee[]
