@@ -10,9 +10,20 @@ const useEmployees = () => {
 
       const fetchEmployees = async () => {
         setLoading(true);
-        try {
-          const response = await fetch("/employees");
+        try { 
+            const response = await fetch("http://localhost:5000/employees", {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            method: "GET",
+            });
+
+            if (!response.ok) {
+            setError("Network response was not ok");
+            }
+
           const data = await response.json();
+          console.log("Employees: ", data);
           setEmployees(data);
         } catch {
           setError("Something went wrong. Please try again later.");
