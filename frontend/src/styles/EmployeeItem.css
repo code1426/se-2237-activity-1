@@ -1,0 +1,21 @@
+.employee-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  gap: 10px;
+  margin: 10px;
+}
+.employee-item:hover {
+  background-color: #f1f1f2;
+}
+
+.employee-item-field {
+  display: flex;
+  flex: 1;
+  padding: 4px 8px;
+  align-items: start;
+  /* background-color: red; */
+  width: 100%;
+}

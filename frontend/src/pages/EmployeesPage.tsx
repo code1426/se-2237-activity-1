@@ -1,17 +1,25 @@
 import useEmployees from "../hooks/useEmployees"
+import EmployeeList from "../components/EmployeeList"
+import Card from "../components/Card"
+import Loading from "../components/loading"
+import TableHeader from "../components/TableHeader"
+
 const EmployeesPage = () => {
-  const {employees} = useEmployees()
+  const {employees, loading, error} = useEmployees()
+
+  if (error) {
+    return <div className="loading">{error}</div>
+  }
+
   return (
-    <div>
-      <h1>Employees</h1>
-      <ul>
-        {employees.map(employee => (
-          <li key={employee.id}>
-            {employee.name} - {employee.role}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Card>
+      <h2 className="page-title">
+        Employees
+      </h2>
+      <TableHeader />
+      {loading ? <Loading /> : <EmployeeList employees={employees} />}
+      
+    </Card>
   )
 }
 

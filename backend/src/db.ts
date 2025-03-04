@@ -52,8 +52,8 @@ export const employeeDatas: Employee[] = [
   {
     id: 9,
     name: "Grace",
-    role: "Software Engineer",
-    salary: 102000,
+    role: "Junior Mobile Developer",
+    salary: 45000,
   },
   {
     id: 10,
