@@ -15,3 +15,17 @@ model Color {
   name      String?  @db.VarChar
   value     String?  @db.VarChar
 }
+
+model Student {
+  id                   Int      @id @default(autoincrement())
+  firstName           String
+  lastName            String
+  groupName           String
+  role                String
+  expectedSalary      Float
+  expectedDateOfDefense DateTime
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@map("students")
+}
