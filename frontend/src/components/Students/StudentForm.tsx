@@ -1,6 +1,6 @@
 
 import { Input } from "@/components/ui/input";
-import { StudentFormValues } from "@/lib/types";
+import { StudentFormValues } from "@/lib/types/types";
 import { format } from "date-fns";
 import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
